@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Citizen | Get Your 5,000 UEC Bonus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sc-gold: #c69c6d;
+            --sc-blue: #00d4ff;
+            --deep-black: #050505;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+        .glass-panel {
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 15px rgba(198, 156, 109, 0.5);
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #111 0%, #050505 100%);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #c69c6d 0%, #8e6d45 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(198, 156, 109, 0.4);
+        }
+
+        .copy-success {
+            animation: fadeInOut 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(10px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.2; transform: scale(0.8); }
+            to { opacity: 0.8; transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="star-field" id="starField"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 border-2 border-[#c69c6d] rotate-45 flex items-center justify-center">
+                    <div class="w-4 h-4 bg-[#c69c6d]"></div>
+                </div>
+                <span class="font-orbitron tracking-[0.2em] font-bold text-xl uppercase">Star Citizen</span>
+            </div>
+            <a href="https://robertsspaceindustries.com/enlist?referral=STAR-MCGT-LGWP" target="_blank" class="hidden md:block text-sm font-semibold tracking-widest text-[#c69c6d] hover:text-white transition-colors">
+                ENLIST NOW
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="max-w-4xl w-full text-center">
+            <h2 class="font-orbitron text-[#c69c6d] tracking-[0.4em] text-sm md:text-base mb-4 uppercase animate-pulse">New Pilot Transmission</h2>
+            <h1 class="font-orbitron text-4xl md:text-7xl font-bold mb-8 leading-tight tracking-tighter">
+                START YOUR JOURNEY WITH <span class="text-white glow-text">5,000 UEC</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Join the universe of Star Citizen today. Use the referral code below during account creation to receive a bonus <span class="text-white font-bold">5,000 United Earth Credits</span> to kickstart your career.
+            </p>
+
+            <!-- Referral Code Box -->
+            <div class="glass-panel p-8 rounded-2xl relative max-w-md mx-auto group">
+                <div class="absolute top-0 left-0 border-t-2 border-l-2 w-4 h-4 border-[#c69c6d]"></div>
+                <div class="absolute top-0 right-0 border-t-2 border-r-2 w-4 h-4 border-[#c69c6d]"></div>
+                <div class="absolute bottom-0 left-0 border-b-2 border-l-2 w-4 h-4 border-[#c69c6d]"></div>
+                <div class="absolute bottom-0 right-0 border-b-2 border-r-2 w-4 h-4 border-[#c69c6d]"></div>
+
+                <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4">Referral Code</p>
+                <div class="flex flex-col gap-4">
+                    <div id="referralCode" class="text-3xl md:text-4xl lg:text-5xl font-orbitron font-bold tracking-widest text-white mb-2 selection:bg-[#c69c6d]">
+                        STAR-MCGT-LGWP
+                    </div>
+                    <button onclick="copyCode()" class="btn-primary py-4 px-8 rounded-lg font-bold tracking-widest uppercase flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                        </svg>
+                        Copy Code
+                    </button>
+                    <a href="https://robertsspaceindustries.com/enlist?referral=STAR-MCGT-LGWP" target="_blank" class="text-xs text-gray-500 hover:text-[#c69c6d] underline transition-colors">
+                        Or click here to enlist directly
+                    </a>
+                </div>
+
+                <div id="copyToast" class="hidden absolute -bottom-16 left-0 right-0">
+                    <div class="bg-green-500/20 border border-green-500 text-green-500 py-2 px-4 rounded-full text-sm font-semibold inline-block">
+                        Code Copied to Clipboard!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Use a Code Section -->
+    <section class="py-24 px-6 bg-[#080808]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-xl border-l-4 border-l-[#c69c6d]">
+                    <h3 class="font-orbitron text-lg mb-4 text-white">Initial Capital</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Starting with 5,000 UEC allows you to purchase better armor, weapons, or ship components immediately upon entering the Verse.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl border-l-4 border-l-[#c69c6d]">
+                    <h3 class="font-orbitron text-lg mb-4 text-white">Event Bonuses</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">During special RSI promotion events, using a referral code often grants extra rewards like free ships, armor sets, or hover bikes.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-xl border-l-4 border-l-[#c69c6d]">
+                    <h3 class="font-orbitron text-lg mb-4 text-white">Community Support</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">By using this code, you help a fellow pilot earn recruitment points which unlock in-game cosmetic rewards and equipment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center px-6">
+        <p class="text-gray-600 text-xs mb-4">
+            This is a fan-made landing page. Star Citizen®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC.
+        </p>
+    </footer>
+
+    <script>
+        const starField = document.getElementById('starField');
+        const starCount = 150;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.style.position = 'absolute';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.width = Math.random() * 2 + 'px';
+            star.style.height = star.style.width;
+            star.style.backgroundColor = 'white';
+            star.style.opacity = Math.random();
+            star.style.borderRadius = '50%';
+            star.style.animation = `pulse ${2 + Math.random() * 3}s infinite alternate`;
+            starField.appendChild(star);
+        }
+
+        function copyCode() {
+            const code = document.getElementById('referralCode').innerText.trim();
+            const el = document.createElement('textarea');
+            el.value = code;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            const toast = document.getElementById('copyToast');
+            toast.classList.remove('hidden');
+            toast.classList.add('copy-success');
+            
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('copy-success');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
